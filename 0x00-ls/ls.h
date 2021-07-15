@@ -62,18 +62,30 @@ void print_list_safe(ls_c *list, ls_n *head);
 #define list_next(el) ((el)->next)
 /* ----------------------------------------------- */
 
-/* core prototypes */
+/* core and core_helpers rototypes */
 void create_dir_list(const char *path, int ac);
-int statinfo(const char *pathname, char *name, ls_c *list);
+int statinfo(const char *pathname, char *name, ls_c *list, bool isFree);
 DIR *open_directory(DIR *dirp, char *path);
 void print_safe(int ac, ls_c *list, char *copy);
-/* --------------- */
+int dont_get_flags(char *name, char *path, ls_c *list);
+int pass_hidden(char *name);
+/* ------------------------------- */
 
 /* other prototypes */
 int print_list(int size, ls_n *head);
 void error_mannager(int errid, bool isDir, char *path);
 int _strcmp(char *s1, char *s2);
+int _strncmp(char *s1, char *s2, int n);
+char *_strstr(char *haystack, char *needle);
+char *_strcpy(char *dest, char *src);
+int _strlen(char *s);
+char *_strcat(char *dest, char *src);
 /* ---------------- */
+
+/* buffer core helpers prototypes */
+char *allocBuf(char *dest, char *path, char *name, char *com);
+char *path_controller(char *path, char *name);
+/* ------------------------------ */
 
 
 #endif /* _LS_H_ */

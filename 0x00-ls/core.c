@@ -41,16 +41,10 @@ void create_dir_list(const char *path, int ac)
 	if (_strcmp(pathCopy, "..") == 0)
 		pathCopy = "../";
 
-	
 	while ((dp = readdir(dirp)))
-	{	
-		if (_strcmp(dp->d_name, ".") == 0 ||  _strcmp(dp->d_name, "..") == 0)
-			continue;
-
-		if (_strcmp((char *)path, ".") == 0)
-			statinfo(dp->d_name, dp->d_name, &list);
+	{
+		dont_get_flags(dp->d_name, (char *) path, &list);
 	}
-
 	print_safe(ac, &list, pathCopy);
 	if (closedir(dirp) == -1)
 	{
@@ -70,17 +64,18 @@ void create_dir_list(const char *path, int ac)
  *
  * Return: int
  */
-int statinfo(const char *pathname, char *name, ls_c *list)
+int statinfo(const char *pathname, char *name, ls_c *list, bool isFree)
 {
 	struct stat sb;
-
 	if (lstat(pathname, &sb) == -1)
 	{
 		perror("lstat");
 		exit(EXIT_FAILURE);
 	}
-
 	list_ins_next(list, list->last_in, name);
+
+	if (isFree)
+		free((char *) pathname);
 	return(0);
 }
 
