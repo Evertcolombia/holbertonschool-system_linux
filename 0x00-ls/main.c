@@ -9,8 +9,15 @@
  */
 int main(int argc, char *argv[])
 {
-	(void) argv;
+	_flags _opts;
+
 	if (argc == 1)
 		create_dir_list(".", argc);
+	else
+	{
+		init_flags(&_opts);
+		args_mannage(argv, &_opts);
+		printf("%d\n", _opts.count);
+	}
 	return (0);
 }
