@@ -1,4 +1,5 @@
 #include "ls.h"
+
 /**
  * dont_get_flags - mannage the control for no flags
  * @name: name of the file / dir
@@ -7,15 +8,12 @@
  *
  * Return: int
  */
-
 int dont_get_flags(char *name, char *path, ls_c *list)
 {
 	char *buff = NULL;
-
 	if (pass_hidden(name) == 0)
 		return (0);
-	
-	/* path is root "." */
+
 	else if (_strcmp(path, ".") == 0)
 		statinfo(path, name, list, false);
 	else

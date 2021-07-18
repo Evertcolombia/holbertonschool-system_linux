@@ -9,7 +9,6 @@
  *
  * Return: pointer to char
  */
-
 char *allocBuf(char *dest, char *path, char *name, char *com)
 {
 	int len = 0;

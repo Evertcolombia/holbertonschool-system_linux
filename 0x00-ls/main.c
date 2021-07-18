@@ -3,21 +3,35 @@
 /**
  * main - main function program
  * @argc: integer
- * @argv: array pointers\
+ * @argv: array pointers
  *
  * Return: integer
  */
 int main(int argc, char *argv[])
 {
 	_flags _opts;
+	int i, dirLen, code = 0;
 
 	if (argc == 1)
+	{
+		dirLen = dir_len(argv[0]);
 		create_dir_list(".", argc);
-	else
+	}
+	else if (argc >= 2)
 	{
 		init_flags(&_opts);
 		args_mannage(argv, &_opts);
-		printf("%d\n", _opts.count);
+
+		for (i = 1; argv[i]; i++)
+		{
+			dirLen = dir_len(argv[i]);
+			if (dirLen == -1)
+			{
+				code = 2;
+				continue;
+			}
+			create_dir_list(argv[i], argc);
+		}
 	}
-	return (0);
+	return (code);
 }

@@ -1,6 +1,7 @@
 #include "ls.h"
+
 /**
- * *_strcat - concatenate two strings
+ * _strcat - concatenate two strings
  * @dest: pointer to a string
  * @src: pointer to the strign to concatenate
  *

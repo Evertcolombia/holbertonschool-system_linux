@@ -4,7 +4,7 @@
  * _strlen - show the lenght of a string
  * @s: pointe to  pass the array
  *
- * Return: none
+ * Return: int
  */
 int _strlen(char *s)
 {
@@ -19,7 +19,7 @@ int _strlen(char *s)
  * _strcmp - compare two strings
  * @s1: string 1
  * @s2: string 2
- * Return: value
+ * Return: int
  */
 int _strcmp(char *s1, char *s2)
 {
@@ -36,11 +36,10 @@ int _strcmp(char *s1, char *s2)
  * @s1: string 1
  * @s2: string 2
  * @n: int
- * Return: value
+ * Return: int
  */
 int _strncmp(char *s1, char *s2, int n)
 {
-
 	(void) n;
 
 	if (*s1 == '.' && *(s1 + 1) != '.')

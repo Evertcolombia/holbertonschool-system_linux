@@ -16,7 +16,7 @@ int print_list(int size, ls_n *head)
 		if (i + 1 == size)
 			fprintf(stdout, "%s\n", head->name);
 		else
-			fprintf(stdout, "%s ", head->name);
+			fprintf(stdout, "%s\t", head->name);
 		head = head->next;
 		i++;
 	}

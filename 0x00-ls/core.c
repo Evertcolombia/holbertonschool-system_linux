@@ -1,57 +1,35 @@
 #include "ls.h"
 
 /**
- * open_directory - list files from a dir path
- * @dirp: DIR strem pointer
+ * create_dir_list - create and print a linked list for directory
  * @path: pointer to pathname
- * @list: linked list controller
- *
- * Return: DIR stream on success
- */
-DIR *open_directory(DIR *dirp, char *path)
-{
-	dirp  = opendir(path);
-	if (dirp == NULL)
-	{
-		error_mannager(errno, true, path);
-	}
-
-	return (dirp);
-}
-
-
-/**
- *  - list files from a dir path
- * @dirpath: pointer to pathname
- * @arc: int
- * @ar_opts: flag structs
+ * @ac: int
  *
  * Return: None
  */
-void create_dir_list(const char *path, int ac)
+void create_dir_list(char *path, int ac)
 {
 	DIR *dirp = NULL;
 	struct dirent *dp;
-	char *pathCopy = (char *) path;	
+	char *pathCopy = (char *) path;
 	ls_c list;
 
-	list_init(&list);
-	dirp = open_directory(dirp, (char *) path);
-	
 	if (_strcmp(pathCopy, "..") == 0)
 		pathCopy = "../";
 
+	list_init(&list);
+	dirp = open_dir(pathCopy);
+
 	while ((dp = readdir(dirp)))
 	{
-		dont_get_flags(dp->d_name, (char *) path, &list);
+		dont_get_flags(dp->d_name, pathCopy, &list);
 	}
-	print_safe(ac, &list, pathCopy);
+	print_safe(ac, &list, path);
 	if (closedir(dirp) == -1)
 	{
 		perror("closedir");
 		exit(EXIT_FAILURE);
 	}
-	
 }
 
 
@@ -81,9 +59,8 @@ int statinfo(const char *pathname, char *name, ls_c *list, bool isFree)
 
 /**
  * print_safe - print safe
- * @arc: int
- * @list: linked l controller
- * @ncase: int
+ * @ac: int
+ * @list: linked list controller
  * @copy: char pointer
  *
  * Retur: none
@@ -94,9 +71,5 @@ void print_safe(int ac, ls_c *list, char *copy)
 		fprintf(stdout, "%s:\n", copy);
 
 	print_list_safe(list, list->head);
-
-	if (ac > 2 && list->size > 0)
-		fprintf(stdout, "%c", '\n');
-
 	list_destroy(list);
 }

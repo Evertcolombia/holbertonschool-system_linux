@@ -1,9 +1,10 @@
 #include "ls.h"
 
 /**
+ * init_flags - set initial values for the flags struct
+ * @_opts: struct of type _flags
  *
- *
- *
+ * Return: None
  */
 void init_flags(_flags *_opts)
 {
@@ -12,9 +13,9 @@ void init_flags(_flags *_opts)
 }
 
 /**
- * arv_mannager - mannage argv flags
+ * args_mannager - mannage argv flags
  * @arv: char to pointer array
- * @ar_opts: struct to save flags
+ * @_opts: struct to save flags
  *
  * Return: None
  */

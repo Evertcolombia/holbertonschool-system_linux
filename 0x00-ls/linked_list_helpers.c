@@ -1,10 +1,10 @@
 #include "ls.h"
 
-
 /**
- * list_init - init a l list control struct
+ * list_init - init a linked list control struct
  * @list: pointer to struct
- * @destroy: pointer to function
+ *
+ * Return: None
  */
 void list_init(ls_c *list)
 {
@@ -14,10 +14,11 @@ void list_init(ls_c *list)
 	list->last_in = NULL;
 }
 
-
 /**
  * list_destroy - destroy list
  * @list: linked list controller
+ *
+ * Return: None
  */
 void list_destroy(ls_c *list)
 {
@@ -27,7 +28,6 @@ void list_destroy(ls_c *list)
 		list_rem_next(list, NULL, (void **) &data);
 	free(list->head);
 }
-
 
 /**
  * list_rem_next - delete element from list
@@ -60,14 +60,13 @@ int list_rem_next(ls_c *list, ls_n *element, void **name)
 		element->next = element->next->next;
 
 		if (element->next == NULL)
-			list->tail = element;		
+			list->tail = element;
 	}
 
 	free(old);
 	list->size--;
 	return (0);
 }
-
 
 /**
  * list_ins_next - insert node in linked list
@@ -106,12 +105,10 @@ int list_ins_next(ls_c *list, ls_n *element, const void *name)
 	return(1);
 }
 
-
 /**
  * print_list_safe - print linked list
  * @list: list control
  * @head: head of the list
- * @_opts: flags structure
  */
  void print_list_safe(ls_c *list, ls_n *head)
 {

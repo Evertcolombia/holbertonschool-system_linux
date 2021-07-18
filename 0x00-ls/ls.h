@@ -13,6 +13,19 @@
 
 
 /**
+ * struct flags_opts - flags struct
+ *
+ * @fa: int to flag a
+ * @f1: int to flag 1
+ * @count: conunt of flags
+ */
+typedef struct flags
+{
+	int f1;
+	int count;
+} _flags;
+
+/**
  * struct ls_node  - our struct
  *
  * @name: name of the file / dir
@@ -63,17 +76,22 @@ void print_list_safe(ls_c *list, ls_n *head);
 /* ----------------------------------------------- */
 
 /* core and core_helpers rototypes */
-void create_dir_list(const char *path, int ac);
+void args_mannage(char *arv[], _flags *_opts);
+void create_dir_list(char *path, int ac);
 int statinfo(const char *pathname, char *name, ls_c *list, bool isFree);
-DIR *open_directory(DIR *dirp, char *path);
 void print_safe(int ac, ls_c *list, char *copy);
 int dont_get_flags(char *name, char *path, ls_c *list);
 int pass_hidden(char *name);
 /* ------------------------------- */
 
+/** Dir prototypes */
+int dir_len(char *dirName);
+DIR *open_dir(char *dirName);
+/* --------------- */
+
 /* other prototypes */
+void init_flags(_flags *_opts);
 int print_list(int size, ls_n *head);
-void error_mannager(int errid, bool isDir, char *path);
 int _strcmp(char *s1, char *s2);
 int _strncmp(char *s1, char *s2, int n);
 char *_strstr(char *haystack, char *needle);
