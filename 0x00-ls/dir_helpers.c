@@ -1,6 +1,6 @@
 #include "ls.h"
-#define PER_DEN "hls: cannot open directory '%s': Permission denied\n"
-#define NO_EXIST "hls: cannot access '%s': No such file or directory\n"
+#define PER_DEN "./hls: cannot open directory %s: Permission denied\n"
+#define NO_EXIST "./hls: cannot access %s: No such file or directory\n"
 
 /**
  * dir_len - get numbers of files and dir in a directory
@@ -11,9 +11,10 @@
 int dir_len(char *dirName)
 {
 	int i = 0;
-	DIR *dirObject = open_dir(dirName);
+	DIR *dirObject;
 	struct dirent *dp;
 
+	dirObject = open_dir(dirName);
 	if (dirObject == NULL)
 		return (-1);
 
@@ -47,6 +48,9 @@ DIR *open_dir(char *dirName)
 				return (NULL);
 			case 2:
 				fprintf(stderr, NO_EXIST, dirName);
+				return (NULL);
+			case 20:
+				stat_file_info(dirName);
 				return (NULL);
 		}
 	}

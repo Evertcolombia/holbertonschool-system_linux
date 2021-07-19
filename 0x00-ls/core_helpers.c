@@ -11,6 +11,7 @@
 int dont_get_flags(char *name, char *path, ls_c *list)
 {
 	char *buff = NULL;
+
 	if (pass_hidden(name) == 0)
 		return (0);
 
@@ -37,4 +38,22 @@ int pass_hidden(char *name)
 	else if (_strncmp(name, ".", 1) == 0)
 		return (0);
 	return (1);
+}
+
+/**
+ * stat_file_info
+ * @path: pathname
+ *
+ * Return: None
+ */
+void stat_file_info(char *path)
+{
+	struct stat sb;
+
+	if (lstat(path, &sb) == -1)
+	{
+		perror("lstat");
+		exit(EXIT_FAILURE);
+	}
+	fprintf(stdout, "%s\n", path);
 }

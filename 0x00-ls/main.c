@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
 	if (argc == 1)
 	{
-		dirLen = dir_len(argv[0]);
+		dirLen = dir_len(".");
 		create_dir_list(".", argc);
 	}
 	else if (argc >= 2)

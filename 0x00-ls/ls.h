@@ -79,6 +79,7 @@ void print_list_safe(ls_c *list, ls_n *head);
 void args_mannage(char *arv[], _flags *_opts);
 void create_dir_list(char *path, int ac);
 int statinfo(const char *pathname, char *name, ls_c *list, bool isFree);
+void stat_file_info(char *path);
 void print_safe(int ac, ls_c *list, char *copy);
 int dont_get_flags(char *name, char *path, ls_c *list);
 int pass_hidden(char *name);

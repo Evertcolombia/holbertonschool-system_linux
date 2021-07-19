@@ -13,7 +13,7 @@ void init_flags(_flags *_opts)
 }
 
 /**
- * args_mannager - mannage argv flags
+ * args_mannage - mannage argv flags
  * @arv: char to pointer array
  * @_opts: struct to save flags
  *

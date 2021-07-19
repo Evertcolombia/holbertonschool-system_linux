@@ -4,9 +4,10 @@
  * print_list - print list
  * @size: size of the list
  * @head: head of the list
- *
+ * @ac: list of args
  * Return: int
  */
+
 int print_list(int size, ls_n *head)
 {
 	int i = 0;

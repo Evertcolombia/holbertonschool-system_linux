@@ -82,7 +82,7 @@ int list_ins_next(ls_c *list, ls_n *element, const void *name)
 
 	new = (ls_n *) malloc(sizeof(ls_n));
 	if (new == NULL)
-		return 	(-1);
+		return (-1);
 
 	new->name = (void *) name;
 
@@ -102,15 +102,17 @@ int list_ins_next(ls_c *list, ls_n *element, const void *name)
 	}
 	list->last_in = new;
 	list->size++;
-	return(1);
+	return (1);
 }
 
 /**
  * print_list_safe - print linked list
  * @list: list control
  * @head: head of the list
+ *
+ * Return: None 
  */
- void print_list_safe(ls_c *list, ls_n *head)
+void print_list_safe(ls_c *list, ls_n *head)
 {
 	int size = 0;
 	ls_n *cp = head;

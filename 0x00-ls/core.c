@@ -45,6 +45,7 @@ void create_dir_list(char *path, int ac)
 int statinfo(const char *pathname, char *name, ls_c *list, bool isFree)
 {
 	struct stat sb;
+
 	if (lstat(pathname, &sb) == -1)
 	{
 		perror("lstat");
@@ -67,9 +68,15 @@ int statinfo(const char *pathname, char *name, ls_c *list, bool isFree)
  */
 void print_safe(int ac, ls_c *list, char *copy)
 {
+	static int printCount = 0;
+
 	if (ac > 2)
 		fprintf(stdout, "%s:\n", copy);
 
 	print_list_safe(list, list->head);
+	printCount++;
+
+	if ((printCount + 1) <  ac)
+		fprintf(stdout, "\n");
 	list_destroy(list);
 }
