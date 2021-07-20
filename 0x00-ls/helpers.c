@@ -12,6 +12,7 @@ void init_flags(_flags *_opts)
 	_opts->fa = 0;
 	_opts->fA = 0;
 	_opts->count = 0;
+	_opts->fileCount = 0;
 }
 
 /**
@@ -34,11 +35,20 @@ void args_mannage(char *arv[], _flags *_opts)
 			while (*p)
 			{
 				if (*p == '1')
+				{
 					_opts->f1 = 1, _opts->count++;
+					break;
+				}
 				else if (*p == 'a')
+				{
 					_opts->fa = 1, _opts->count++;
+					break;
+				}
 				else if (*p == 'A')
-					_opts->fA = 1, _opts->count++; 
+				{
+					_opts->fA = 1, _opts->count++;
+					break;
+				}
 				p++;
 			}
 		}

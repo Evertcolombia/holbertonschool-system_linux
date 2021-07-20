@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 			{
 				if (argv[i][0] == '-')
 					continue;
-				dirLen = dir_len(argv[i]);
+				dirLen = dir_len(argv[i], &_opts);
 
 				if (dirLen == -1)
 				{

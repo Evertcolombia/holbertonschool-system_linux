@@ -8,13 +8,13 @@
  *
  * Return: Number of files.
  */
-int dir_len(char *dirName)
+int dir_len(char *dirName, _flags *_opts)
 {
 	int i = 0;
 	DIR *dirObject;
 	struct dirent *dp;
 
-	dirObject = open_dir(dirName);
+	dirObject = open_dir(dirName, _opts);
 	if (dirObject == NULL)
 		return (-1);
 
@@ -33,7 +33,7 @@ int dir_len(char *dirName)
  *
  * Return: DIR object struct.
  */
-DIR *open_dir(char *dirName)
+DIR *open_dir(char *dirName, _flags *_opts)
 {
 	DIR *dir = opendir(dirName);
 	int errnum;
@@ -50,6 +50,7 @@ DIR *open_dir(char *dirName)
 				fprintf(stderr, NO_EXIST, dirName);
 				return (NULL);
 			case 20:
+				_opts->fileCount++;
 				stat_file_info(dirName);
 				return (NULL);
 		}

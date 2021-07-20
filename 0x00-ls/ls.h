@@ -15,9 +15,11 @@
 /**
  * struct flags_opts - flags struct
  *
- * @fa: int to flag a
- * @f1: int to flag 1
+ * @fa: int to flag -a
+ * @f1: int to flag -1
+ * @fA: int to flag -A
  * @count: conunt of flags
+ * @fileCount: count of total alone files as args
  */
 typedef struct flags
 {
@@ -25,6 +27,7 @@ typedef struct flags
 	int fa;
 	int fA;
 	int count;
+	int fileCount;
 } _flags;
 
 /**
@@ -88,8 +91,8 @@ int pass_hidden(char *name, bool complete);
 /* ------------------------------- */
 
 /** Dir prototypes */
-int dir_len(char *dirName);
-DIR *open_dir(char *dirName);
+int dir_len(char *dirName, _flags *_opts);
+DIR *open_dir(char *dirName, _flags *_opts);
 /* --------------- */
 
 /* other prototypes */

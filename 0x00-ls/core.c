@@ -21,9 +21,9 @@ void create_dir_list(char *path, int ac, _flags *_opts)
 
 	list_init(&list);
 	if (ac == 2 && _opts->count > 0)
-		dirp = open_dir(".");
+		dirp = open_dir(".", _opts);
 	else
-		dirp = open_dir(pathCopy);
+		dirp = open_dir(pathCopy, _opts);
 
 	while ((dp = readdir(dirp)))
 	{
@@ -82,9 +82,8 @@ void print_safe(int ac, ls_c *list, char *copy, _flags *_opts)
 	if (_opts->count > 0)
 		ac -= _opts->count;
 	if (ac > 2)
-	
 		fprintf(stdout, "%s:\n", copy);
-	
+
 	print_list_safe(list, list->head, _opts);
 	printCount++;
 
