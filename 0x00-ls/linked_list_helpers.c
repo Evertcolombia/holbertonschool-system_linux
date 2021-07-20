@@ -112,7 +112,7 @@ int list_ins_next(ls_c *list, ls_n *element, const void *name)
  *
  * Return: None 
  */
-void print_list_safe(ls_c *list, ls_n *head)
+void print_list_safe(ls_c *list, ls_n *head, _flags *_opts)
 {
 	int size = 0;
 	ls_n *cp = head;
@@ -120,6 +120,8 @@ void print_list_safe(ls_c *list, ls_n *head)
 	size = list_size(list);
 	if (size == 0)
 		return;
-
-	print_list(size, cp);
+	if (_opts->f1 > 0)
+		print_vertical(size, cp);
+	else
+		print_list(size, cp);
 }

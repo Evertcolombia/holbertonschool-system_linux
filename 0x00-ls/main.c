@@ -12,25 +12,32 @@ int main(int argc, char *argv[])
 	_flags _opts;
 	int i, dirLen, code = 0;
 
+	init_flags(&_opts);
+
 	if (argc == 1)
-	{
-		dirLen = dir_len(".");
-		create_dir_list(".", argc);
-	}
+		create_dir_list(".", argc, &_opts);
 	else if (argc >= 2)
 	{
-		init_flags(&_opts);
 		args_mannage(argv, &_opts);
 
-		for (i = 1; argv[i]; i++)
+		if (argc == 2 && _opts.count > 0)
+			create_dir_list(".", argc, &_opts);
+
+		else
 		{
-			dirLen = dir_len(argv[i]);
-			if (dirLen == -1)
+			for (i = 1; argv[i]; i++)
 			{
-				code = 2;
-				continue;
+				if (argv[i][0] == '-')
+					continue;
+				dirLen = dir_len(argv[i]);
+
+				if (dirLen == -1)
+				{
+					code = 2;
+					continue;
+				}
+				create_dir_list(argv[i], argc, &_opts);
 			}
-			create_dir_list(argv[i], argc);
 		}
 	}
 	return (code);

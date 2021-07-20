@@ -2,29 +2,35 @@
 
 /**
  * create_dir_list - create and print a linked list for directory
+ *
  * @path: pointer to pathname
  * @ac: int
+ * @_opts: flags struct
  *
  * Return: None
  */
-void create_dir_list(char *path, int ac)
+void create_dir_list(char *path, int ac, _flags *_opts)
 {
 	DIR *dirp = NULL;
 	struct dirent *dp;
 	char *pathCopy = (char *) path;
 	ls_c list;
-
+	
 	if (_strcmp(pathCopy, "..") == 0)
 		pathCopy = "../";
 
 	list_init(&list);
-	dirp = open_dir(pathCopy);
+	if (ac == 2 && _opts->f1 > 0)
+		dirp = open_dir(".");
+	else
+		dirp = open_dir(pathCopy);
 
 	while ((dp = readdir(dirp)))
 	{
 		dont_get_flags(dp->d_name, pathCopy, &list);
 	}
-	print_safe(ac, &list, path);
+	print_safe(ac, &list, pathCopy, _opts);
+
 	if (closedir(dirp) == -1)
 	{
 		perror("closedir");
@@ -66,14 +72,17 @@ int statinfo(const char *pathname, char *name, ls_c *list, bool isFree)
  *
  * Retur: none
  */
-void print_safe(int ac, ls_c *list, char *copy)
+void print_safe(int ac, ls_c *list, char *copy, _flags *_opts)
 {
 	static int printCount = 0;
 
+	if (_opts->count > 0)
+		ac -= _opts->count;
 	if (ac > 2)
+	
 		fprintf(stdout, "%s:\n", copy);
-
-	print_list_safe(list, list->head);
+	
+	print_list_safe(list, list->head, _opts);
 	printCount++;
 
 	if ((printCount + 1) <  ac)

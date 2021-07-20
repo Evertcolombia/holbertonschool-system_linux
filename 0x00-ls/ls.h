@@ -64,7 +64,7 @@ void list_init(ls_c *list);
 void list_destroy(ls_c *list);
 int list_ins_next(ls_c *list, ls_n *element, const void *name);
 int list_rem_next(ls_c *list, ls_n *element, void **name);
-void print_list_safe(ls_c *list, ls_n *head);
+void print_list_safe(ls_c *list, ls_n *head, _flags *_opts);
 
 #define list_size(list) ((list)->size)
 #define list_head(list) ((list)->head)
@@ -77,10 +77,10 @@ void print_list_safe(ls_c *list, ls_n *head);
 
 /* core and core_helpers rototypes */
 void args_mannage(char *arv[], _flags *_opts);
-void create_dir_list(char *path, int ac);
+void create_dir_list(char *path, int ac, _flags *_opts);
 int statinfo(const char *pathname, char *name, ls_c *list, bool isFree);
 void stat_file_info(char *path);
-void print_safe(int ac, ls_c *list, char *copy);
+void print_safe(int ac, ls_c *list, char *copy, _flags *_opts);
 int dont_get_flags(char *name, char *path, ls_c *list);
 int pass_hidden(char *name);
 /* ------------------------------- */
@@ -93,6 +93,7 @@ DIR *open_dir(char *dirName);
 /* other prototypes */
 void init_flags(_flags *_opts);
 int print_list(int size, ls_n *head);
+int print_vertical(int size, ls_n *head);
 int _strcmp(char *s1, char *s2);
 int _strncmp(char *s1, char *s2, int n);
 char *_strstr(char *haystack, char *needle);

@@ -14,7 +14,6 @@ int dont_get_flags(char *name, char *path, ls_c *list)
 
 	if (pass_hidden(name) == 0)
 		return (0);
-
 	else if (_strcmp(path, ".") == 0)
 		statinfo(path, name, list, false);
 	else
@@ -49,7 +48,7 @@ int pass_hidden(char *name)
 void stat_file_info(char *path)
 {
 	struct stat sb;
-
+	
 	if (lstat(path, &sb) == -1)
 	{
 		perror("lstat");
