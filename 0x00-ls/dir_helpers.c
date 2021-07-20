@@ -1,6 +1,6 @@
 #include "ls.h"
-#define PER_DEN "./hls_02: cannot open directory %s: Permission denied\n"
-#define NO_EXIST "./hls_02: cannot access %s: No such file or directory\n"
+#define PER_DEN "./hls_03: cannot open directory %s: Permission denied\n"
+#define NO_EXIST "./hls_03: cannot access %s: No such file or directory\n"
 
 /**
  * dir_len - get numbers of files and dir in a directory

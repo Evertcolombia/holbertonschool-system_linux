@@ -20,14 +20,17 @@ void create_dir_list(char *path, int ac, _flags *_opts)
 		pathCopy = "../";
 
 	list_init(&list);
-	if (ac == 2 && _opts->f1 > 0)
+	if (ac == 2 && _opts->count > 0)
 		dirp = open_dir(".");
 	else
 		dirp = open_dir(pathCopy);
 
 	while ((dp = readdir(dirp)))
 	{
-		dont_get_flags(dp->d_name, pathCopy, &list);
+		if (_opts->count == 0)
+			dont_get_flags(dp->d_name, pathCopy, &list);
+		else
+			get_flags(dp->d_name, pathCopy, &list, _opts);
 	}
 	print_safe(ac, &list, pathCopy, _opts);
 

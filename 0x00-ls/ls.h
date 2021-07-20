@@ -22,6 +22,8 @@
 typedef struct flags
 {
 	int f1;
+	int fa;
+	int fA;
 	int count;
 } _flags;
 
@@ -82,7 +84,7 @@ int statinfo(const char *pathname, char *name, ls_c *list, bool isFree);
 void stat_file_info(char *path);
 void print_safe(int ac, ls_c *list, char *copy, _flags *_opts);
 int dont_get_flags(char *name, char *path, ls_c *list);
-int pass_hidden(char *name);
+int pass_hidden(char *name, bool complete);
 /* ------------------------------- */
 
 /** Dir prototypes */
@@ -92,6 +94,7 @@ DIR *open_dir(char *dirName);
 
 /* other prototypes */
 void init_flags(_flags *_opts);
+int get_flags(char *name, char *path, ls_c *list, _flags *_opts);
 int print_list(int size, ls_n *head);
 int print_vertical(int size, ls_n *head);
 int _strcmp(char *s1, char *s2);

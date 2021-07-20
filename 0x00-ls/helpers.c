@@ -9,6 +9,8 @@
 void init_flags(_flags *_opts)
 {
 	_opts->f1 = 0;
+	_opts->fa = 0;
+	_opts->fA = 0;
 	_opts->count = 0;
 }
 
@@ -33,6 +35,10 @@ void args_mannage(char *arv[], _flags *_opts)
 			{
 				if (*p == '1')
 					_opts->f1 = 1, _opts->count++;
+				else if (*p == 'a')
+					_opts->fa = 1, _opts->count++;
+				else if (*p == 'A')
+					_opts->fA = 1, _opts->count++; 
 				p++;
 			}
 		}
