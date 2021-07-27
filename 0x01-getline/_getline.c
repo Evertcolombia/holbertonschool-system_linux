@@ -30,21 +30,21 @@ char *_getline(const int fd)
 		memset(&head, 0, sizeof(head));
 		return (NULL);
 	}
-	fb = get_fdbfz(&head, fd);
+	fb = get_df_buffer_size(&head, fd);
 	if (fb)
-		line = read_bfz(fb);
+		line = read_buff_size(fb);
 	if (line && line[0] == '\n' && !line[1])
 		line[0] = 0;
 	return (line);
 }
 
 /**
- * read_bfz - reads into the buffer
+ * read_buff_size - reads into the buffer
  * @fb: the fd buf struct
  *
  * Return: 0 on success else -1 on error.
  */
-char *read_bfz(getlined_t *fb)
+char *read_buff_size(getlined_t *fb)
 {
 	char buf[READ_SIZE + 1], *p, *line;
 	ssize_t r = 0;
@@ -89,11 +89,11 @@ char *read_bfz(getlined_t *fb)
 }
 
 /**
- * get_fdbfz - adds a car to linked list
+ * get_df_buffer_size - adds a car to linked list
  * @fd: file descriptor of buffer to get
  * Return: pointer to the fd buf node
  */
-getlined_t *get_fdbfz(getlined_t *head, const int fd)
+getlined_t *get_df_buffer_size(getlined_t *head, const int fd)
 {
 	getlined_t *node;
 
