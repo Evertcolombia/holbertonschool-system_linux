@@ -90,7 +90,6 @@ char *read_bfz(getlined_t *fb)
 
 /**
  * get_fdbfz - adds a car to linked list
- * @head: pointer to head node
  * @fd: file descriptor of buffer to get
  * Return: pointer to the fd buf node
  */
@@ -128,7 +127,6 @@ getlined_t *get_fdbfz(getlined_t *head, const int fd)
 /**
  *  *_strchr - locates a character in a string
  *  @s: the string to be parsed
- *  @c: the character to look for
  *  @size: number of bytes to search
  *  Return: (s) a pointer to the memory area s
  */
@@ -146,7 +144,6 @@ char *_strchr(char *s, char c, ssize_t size)
 
 /**
  * _realloc - reallocates a block of memory
- * @ptr: pointer to previous malloc'ated block
  * @old_size: byte size of previous block
  * @new_size: byte size of new block
  *
