@@ -8,7 +8,7 @@ Usage: ./read_write_heap.py PID search_string replace_by_string
 Where:
     - PID is the pid of the target process
     - search_string is the ASCII string you are looking to overwrite
-    - replace_by_string is the ASCII string you want to replace search_string with
+    - replace_by_string is the ASCII string you want to replace search_string
 '''
 
 
