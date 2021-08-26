@@ -15,12 +15,12 @@ Where:
 import sys
 
 def default_exit(msg):
-    print("\n{}".format(msg))
+    print("\n{}".format(msg), file = sys.stdout)
     sys.exit(1)
 
 def validate_str(to_validate):
     if to_validate == "":
-        deafult_exit()
+        default_exit("Invalid use")
     return to_validate
 
 if len(sys.argv) != 4:
@@ -62,7 +62,6 @@ maps_lines.close()
 perms = heap_line[1]
 if 'w' not in perms and 'r' not in perms:
     default_exit("[err] does not have read write perms")
-    exit(1)
 
 addr = heap_line[0].split("-")
 if len(addr) != 2:
