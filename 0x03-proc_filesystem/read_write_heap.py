@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-'''             
+"""
 Locates and replaces the first occurrence of a string in the heap of a process
 
 Usage: ./read_write_heap.py PID search_string replace_by_string
@@ -9,33 +9,34 @@ Where:
     - PID is the pid of the target process
     - search_string is the ASCII string you are looking to overwrite
     - replace_by_string is the ASCII string you want to replace search_str
-'''
+"""
 
 
 import sys
 
-def default_exit(msg):
-    print("\n{}".format(msg), file = sys.stdout)
-    sys.exit(1)
 
-def validate_str(to_validate):
-    if to_validate == "":
-        default_exit("Invalid use")
-    return to_validate
+def default_exit(msg):
+    print("\n{}".format(msg), file=sys.stdout)
+    sys.exit(1)
 
 if len(sys.argv) != 4:
     default_exit("Args must be 3")
 
 try:
-    pid = int(sys.argv[1]) # pid of the process
+    pid = int(sys.argv[1])  # pid of the process
     if pid <= 0:
         default_exit("[err] pid must be greather than 0")
 except ValueError as e:
     default_exit(e)
 
 # search and replace strings
-search_str = validate_str(sys.argv[2]) 
-replace_str = validate_str(sys.argv[3])
+search_str = sys.argv[2]
+if search_str == "":
+    default_exit("search string cand be empty")
+
+replace_str = sys.argv[3]
+if replace_str == "":
+    replace_str = " " * len(search_str)
 
 # path's to maps and mem files for current pid
 maps_path = "/proc/{}/maps".format(pid)
@@ -73,9 +74,8 @@ offset = heap_line[2]
 dev = heap_line[3]
 inode = heap_line[4]
 path = heap_line[-1][:]
-print("\tPath: {}\n\tAdress: {}\n\tPerms: {}\n\tOffset: {} \
-        \n\tDev: {}\n\tInode: {}"
-        .format(path, '-'.join(addr), perms, offset, dev, inode))
+print("\tPath: {}\n\tAdress: {}\n\tPerms: {}\n\tOffset: {}\n\tDev: {}\n\ \
+        tInode: {}".format(path, '-'.join(addr), perms, offset, dev, inode))
 print("start: {}\nend: {}".format(addr_start, addr_end))
 
 # open and read mem file
