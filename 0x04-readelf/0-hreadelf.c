@@ -35,7 +35,10 @@ int main(int argc, char *argv[])
 	/* Parse the rest of the ELF file here. */
 	printf("ELF Header:\n");
 	mannage_magic(header_64.e_ident);
-
+	mannage_class(header_64.e_ident[4]);
+	mannage_data(header_64.e_ident[5]);
+	mannage_version(header_64.e_ident[6]);
+	mannage_os_abi(header_64.e_ident[7]);
 	/* Don't forget to close the file. */
 	fclose(fp);
 	return (0);

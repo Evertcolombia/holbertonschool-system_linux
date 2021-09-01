@@ -2,9 +2,7 @@
 
 /**
  * print_spaces - helpers to print presentation of program
- * @spaces: total spaces to create
  *
- * Return: None
  */
 void print_spaces(int spaces)
 {
