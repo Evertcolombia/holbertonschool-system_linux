@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 		mannage_error("Usage: elf-header <ELF-file>\n", 0);
 
 	header_64 = read_header(&fp, argv[1], &header_32);
+	endian_check(&header_64, &header_32);
 
 	/* Parse the rest of the ELF file here. */
 	printf("ELF Header:\n");

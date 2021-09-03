@@ -17,6 +17,7 @@ typedef struct header_types
 
 
 Elf64_Ehdr read_header(FILE **fp, char *name, Elf32_Ehdr *header_32);
+void endian_check(Elf64_Ehdr *header, Elf32_Ehdr *header_32);
 
 /* eident_helpers.c */
 void mannage_magic(unsigned char e_ident[EI_NIDENT]);
