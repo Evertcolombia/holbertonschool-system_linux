@@ -33,7 +33,15 @@ void mannage_machine_2(Elf64_Half flag);
 void mannage_version_2(Elf64_Word version);
 
 /* header_helpers_2.c */
-void mannage_entry_point(Elf64_Addr entryP);
+void mannage_entry_point(Elf32_Addr entryP_32, Elf64_Addr entryP, int sel);
+void mannage_prog_header(Elf32_Addr phoof32, Elf64_Addr phoof64, int sel);
+void  mannage_prog_section(Elf32_Addr section32, Elf64_Addr section64, int sel);
+void mannage_flags(Elf32_Word flags32, Elf64_Word flags64, int sel);
+void mannage_header_size(Elf32_Half hsize32, Elf64_Half hsize64,int sel);
+
+/* header size helpers.c */
+void mannage_header_proSize(Elf32_Half phsize32, Elf64_Half phsize, int sel);
+void manange_progHeader_num(Elf32_Half nsize32, Elf64_Half nsize64, int sel);
 
 void mannage_error(char *msg, int code);
 
