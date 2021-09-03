@@ -1,7 +1,7 @@
 # -*- MakeFile -*-
 
 CC=gcc
-CFLAGS=-g3 -Wall -Werror -Wextra -pedantic -std=gnu90
+CFLAGS= -Wall -Werror -Wextra -pedantic
 
 0-hreadelf:
 	@rm -rf "$${OUT}"
