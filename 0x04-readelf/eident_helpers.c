@@ -27,8 +27,8 @@ void mannage_class(unsigned char class_value)
 {
 	Hdr_t h_types[] = {
 		{ELFCLASS32, "ELF32"},
-	      	{ELFCLASS64, "ELF64"},
-		{ELFCLASSNONE, "Invalid class"}
+	    {ELFCLASS64, "ELF64"},
+		{ELFCLASSNONE, "None"}
 	};
 
 	printf("  Class:");

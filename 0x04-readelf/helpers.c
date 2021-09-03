@@ -51,7 +51,7 @@ void type_iterator(Hdr_t *h_t, int size, unsigned int type)
 
 	for (; i < size; i++)
 	{
-		if ((int) type == h_t[i].type)
+		if (type ==  h_t[i].type)
 		{
 			printf("%s\n", h_t[i].msg);
 			break;
@@ -73,7 +73,7 @@ int machine_iterator(Hdr_t *h_t, int size, unsigned int machine)
 
 	for (; i < size; i++)
 	{
-		if ((int) machine == h_t[i].type)
+		if (machine == h_t[i].type)
 		{
 			printf("%s\n", h_t[i].msg);
 			return (0);

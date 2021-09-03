@@ -11,7 +11,7 @@
 
 typedef struct header_types
 {
-	int type;
+	unsigned int type;
 	char *msg;
 } Hdr_t;
 
@@ -28,7 +28,7 @@ void mannage_os_abi(unsigned char os_flag);
 
 /* header_helpers.c */
 void mannage_abi_version(unsigned char abi_version);
-void mannage_type(Elf64_Half e_type64, Elf32_Half e_type32, unsigned char c_val);
+void mannage_type(Elf64_Half e_type64, Elf32_Half e_type32, int c_val);
 void mannage_machine(Elf64_Half flag);
 void mannage_machine_2(Elf64_Half flag);
 void mannage_version_2(Elf64_Word version);

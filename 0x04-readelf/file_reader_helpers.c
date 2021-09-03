@@ -26,7 +26,7 @@ Elf64_Ehdr read_header(FILE **fp, char *name, Elf32_Ehdr *header_32)
 
 	fread(&header_64, sizeof(header_64), 1, *fp);
 	rewind(*fp);
-	fread(header_32, sizeof(header_32), 1, *fp);
+	fread(header_32, sizeof(*header_32), 1, *fp);
 
 	if (memcmp(header_64.e_ident, ELFMAG, SELFMAG) == 0)
 		return (header_64);

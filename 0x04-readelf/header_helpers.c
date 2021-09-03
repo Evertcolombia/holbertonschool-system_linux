@@ -21,27 +21,23 @@ void mannage_abi_version(unsigned char abi_version)
  *
  * Return: None
  */
-void mannage_type(Elf64_Half e_type64, Elf32_Half e_type32, unsigned char c_val)
+void mannage_type(Elf64_Half e_type64, Elf32_Half e_type32, int c_val)
 {
 	Hdr_t h_types[] = {
-		{ET_NONE, "NONE (No file type)"},
+		{ET_NONE, "NONE (None)"},
 		{ET_REL, "REL (Relocatable file)"},
 		{ET_EXEC, "EXEC (Executable file)"},
 		{ET_DYN, "DYN (Shared object file)"},
-		{ET_CORE, "CORE (Core file)"},
-		{ET_LOOS, "OSS (Operating system-specific)"},
-		{ET_HIOS, "OSS (Operating system-specific)"},
-		{ET_LOPROC, "PS (Processor-specific)"},
-		{ET_HIPROC, "Processor-specific\n"},
+		{ET_CORE, "CORE (Core	 file)"},
 	};
 
 	printf("  Type:");
 	print_spaces(30);
 	
 	if (c_val == 2)
-		type_iterator(h_types, 9, e_type64);
+		type_iterator(h_types, 5, e_type64);
 	else
-		type_iterator(h_types, 9, e_type32);
+		type_iterator(h_types, 5, e_type32);
 }	
 
 
