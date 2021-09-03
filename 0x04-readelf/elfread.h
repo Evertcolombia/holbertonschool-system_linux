@@ -42,6 +42,9 @@ void mannage_header_size(Elf32_Half hsize32, Elf64_Half hsize64,int sel);
 /* header size helpers.c */
 void mannage_header_proSize(Elf32_Half phsize32, Elf64_Half phsize, int sel);
 void manange_progHeader_num(Elf32_Half nsize32, Elf64_Half nsize64, int sel);
+void mannage_hdr_secSize(Elf32_Half hssize32, Elf64_Half hssize64,int sel);
+void mannage_hdrSec_num(Elf32_Half shnum32, Elf64_Half shnum64, int sel);
+void mannage_tableIndex(Elf32_Half tindex32, Elf64_Half tindex64, int sel);
 
 void mannage_error(char *msg, int code);
 

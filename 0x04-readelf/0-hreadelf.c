@@ -52,6 +52,9 @@ int main(int argc, char *argv[])
 	mannage_header_size(header_32.e_ehsize, header_64.e_ehsize, select);
 	mannage_header_proSize(header_32.e_phentsize, header_64.e_phentsize, select);
 	manange_progHeader_num(header_32.e_phnum, header_64.e_phnum, select);
+	mannage_hdr_secSize(header_32.e_shentsize, header_64.e_shentsize, select);
+	mannage_hdrSec_num(header_32.e_shnum, header_64.e_shnum, select);
+	mannage_tableIndex(header_32.e_shstrndx, header_64.e_shstrndx, select);
 	/* Don't forget to close the file. */
 	fclose(fp);
 	return (0);

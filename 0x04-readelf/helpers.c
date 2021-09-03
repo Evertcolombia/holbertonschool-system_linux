@@ -37,6 +37,14 @@ void struct_iterator(Hdr_t *h_t, int size, unsigned char flag)
 	}
 }
 
+/**
+ * type_iterator - iterator for type
+ * @h_t: types
+ * @size: size
+ * @type: type
+ *
+ * Return: None
+ */
 void type_iterator(Hdr_t *h_t, int size, unsigned int type)
 {
 	int i = 0;
@@ -51,6 +59,14 @@ void type_iterator(Hdr_t *h_t, int size, unsigned int type)
 	}
 }
 
+/**
+ * machine_iterator - machine iterator
+ * @h_t: types
+ * @size: syse
+ * @machine: machine
+ *
+ * Return: None
+ */
 int machine_iterator(Hdr_t *h_t, int size, unsigned int machine)
 {
 	int i = 0;

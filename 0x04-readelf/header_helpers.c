@@ -1,5 +1,11 @@
 #include "elfread.h"
 
+/**
+ * mannage_abi_version - Identifies the object file version
+ * @abi_version: version argument
+ *
+ * Return: None
+ */
 void mannage_abi_version(unsigned char abi_version)
 {
 	printf("  ABI Version:");
@@ -7,6 +13,14 @@ void mannage_abi_version(unsigned char abi_version)
 	printf("%d\n", abi_version);
 }
 
+/**
+ * mannage_type - Identifies the object file type
+ * @e_type64: type in 64
+ * @e_type32: type in 32
+ * @c_val: value
+ *
+ * Return: None
+ */
 void mannage_type(Elf64_Half e_type64, Elf32_Half e_type32, unsigned char c_val)
 {
 	Hdr_t h_types[] = {
@@ -31,6 +45,12 @@ void mannage_type(Elf64_Half e_type64, Elf32_Half e_type32, unsigned char c_val)
 }	
 
 
+/**
+ * mannage_machine - Specifies the required architecture for an individual file
+ * @flag: flag to search
+ *
+ * Return: None
+ */
 void mannage_machine(Elf64_Half flag)
 {
 	Hdr_t h_types[] = {
@@ -80,8 +100,8 @@ void mannage_machine(Elf64_Half flag)
 }
 
 /**
- * get_machine_2 - gets the target machine type string
- * @machine_flag: number that represents the machine
+ * mannage_machine_2 - gets the target machine type string
+ * @flag: number that represents the machine
  *
  * Return: the string or NULL
  */
@@ -127,6 +147,12 @@ void mannage_machine_2(Elf64_Half flag)
 	machine_iterator(h_types, 34, flag);
 }
 
+/**
+ * mannage_version_2 - mannage version 2
+ * @version: version to print
+ *
+ * Return: None
+ */
 void mannage_version_2(Elf64_Word version)
 {
 	printf("  Version:");
