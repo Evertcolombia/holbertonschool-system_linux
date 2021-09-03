@@ -23,7 +23,7 @@ void mannage_magic(unsigned char e_ident[EI_NIDENT])
  *
  * Return: None
  */
-void mannage_class(unsigned char class)
+void mannage_class(unsigned char class_value)
 {
 	Hdr_t h_types[] = {
 		{ELFCLASS32, "ELF32"},
@@ -33,7 +33,7 @@ void mannage_class(unsigned char class)
 
 	printf("  Class:");
 	print_spaces(29);
-	struct_iterator(h_types, 3, class);
+	struct_iterator(h_types, 3, class_value);
 }
 
 /**

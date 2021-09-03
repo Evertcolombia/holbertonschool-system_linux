@@ -39,6 +39,11 @@ int main(int argc, char *argv[])
 	mannage_data(header_64.e_ident[5]);
 	mannage_version(header_64.e_ident[6]);
 	mannage_os_abi(header_64.e_ident[7]);
+	mannage_abi_version(header_64.e_ident[8]);
+	mannage_type(header_64.e_type, header_32.e_type, header_64.e_ident[4]);
+	mannage_machine(header_64.e_machine);
+	mannage_version_2(header_64.e_version);
+	mannage_entry_point(header_64.e_entry);
 	/* Don't forget to close the file. */
 	fclose(fp);
 	return (0);

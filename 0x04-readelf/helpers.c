@@ -2,7 +2,9 @@
 
 /**
  * print_spaces - helpers to print presentation of program
+ * @spaces: total spaces to print
  *
+ * Return: None
  */
 void print_spaces(int spaces)
 {
@@ -33,4 +35,34 @@ void struct_iterator(Hdr_t *h_t, int size, unsigned char flag)
 		}
 		i++;
 	}
+}
+
+void type_iterator(Hdr_t *h_t, int size, unsigned int type)
+{
+	int i = 0;
+
+	for (; i < size; i++)
+	{
+		if ((int) type == h_t[i].type)
+		{
+			printf("%s\n", h_t[i].msg);
+			break;
+		}
+	}
+}
+
+int machine_iterator(Hdr_t *h_t, int size, unsigned int machine)
+{
+	int i = 0;
+
+	for (; i < size; i++)
+	{
+		if ((int) machine == h_t[i].type)
+		{
+			printf("%s\n", h_t[i].msg);
+			return (0);
+		}
+	}
+	return (1);
+
 }
