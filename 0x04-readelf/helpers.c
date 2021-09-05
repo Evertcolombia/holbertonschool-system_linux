@@ -38,10 +38,12 @@ void struct_iterator(Hdr_t *h_t, int size, unsigned char flag)
 }
 
 /**
- * struct_iterator_2 -
- * @h_t: types
- * @size: sizeeeeeeee
- * @type: a type
+ * struct_iterator_2 - helpers to print presentation of program
+ * @h_t: total spaces to print
+ * @size: size of the object
+ * @type: type of the object
+ *
+ * Return: None
  */
 void struct_iterator_2(Hdr_t *h_t, int size, unsigned int type)
 {
@@ -58,12 +60,12 @@ void struct_iterator_2(Hdr_t *h_t, int size, unsigned int type)
 }
 
 /**
- * machine_iterator - menuda mierda
- * @h_t: types
- * @size: syse
- * @machine: machine
+ * machine_iterator - helpers to print presentation of program
+ * @h_t: total spaces to print
+ * @size: size of the object
+ * @machine: type of the object
  *
- * Return: int
+ * Return: Integer
  */
 int machine_iterator(Hdr_t *h_t, int size, unsigned int machine)
 {
