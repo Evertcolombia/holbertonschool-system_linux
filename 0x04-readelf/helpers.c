@@ -15,7 +15,7 @@ void print_spaces(int spaces)
 }
 
 /**
- * struct_iterator - iterates over an object 
+ * struct_iterator - iterates over an object
  * @h_t: header types
  * @size: size of the object
  * @flag: flag to check
@@ -38,14 +38,12 @@ void struct_iterator(Hdr_t *h_t, int size, unsigned char flag)
 }
 
 /**
- * type_iterator - iterator for type
+ * struct_iterator_2 -
  * @h_t: types
- * @size: size
- * @type: type
- *
- * Return: None
+ * @size: sizeeeeeeee
+ * @type: a type
  */
-void type_iterator(Hdr_t *h_t, int size, unsigned int type)
+void struct_iterator_2(Hdr_t *h_t, int size, unsigned int type)
 {
 	int i = 0;
 
@@ -60,12 +58,12 @@ void type_iterator(Hdr_t *h_t, int size, unsigned int type)
 }
 
 /**
- * machine_iterator - machine iterator
+ * machine_iterator - menuda mierda
  * @h_t: types
  * @size: syse
  * @machine: machine
  *
- * Return: None
+ * Return: int
  */
 int machine_iterator(Hdr_t *h_t, int size, unsigned int machine)
 {

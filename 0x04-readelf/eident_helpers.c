@@ -11,7 +11,7 @@ void mannage_magic(unsigned char e_ident[EI_NIDENT])
 	int i = 0;
 
 	printf("  Magic:   ");
-	for(; i < (EI_NIDENT- 1); i++)
+	for (; i < (EI_NIDENT - 1); i++)
 		printf("%02x ", e_ident[i]);
 	printf("%02x\n", e_ident[i]);
 
@@ -19,7 +19,7 @@ void mannage_magic(unsigned char e_ident[EI_NIDENT])
 
 /**
  * mannage_class - print the class value for elf header
- * @class: value to compare
+ * @class_value: value to compare
  *
  * Return: None
  */
@@ -96,5 +96,5 @@ void mannage_os_abi(unsigned char os_flag)
 
 	printf("  OS/ABI:");
 	print_spaces(28);
-	struct_iterator(h_types, 10, os_flag);	
+	struct_iterator(h_types, 10, os_flag);
 }

@@ -33,12 +33,11 @@ void mannage_type(Elf64_Half e_type64, Elf32_Half e_type32, int c_val)
 
 	printf("  Type:");
 	print_spaces(30);
-	
 	if (c_val == 2)
-		type_iterator(h_types, 5, e_type64);
+		struct_iterator_2(h_types, 5, e_type64);
 	else
-		type_iterator(h_types, 5, e_type32);
-}	
+		struct_iterator_2(h_types, 5, e_type32);
+}
 
 
 /**
@@ -82,12 +81,8 @@ void mannage_machine(Elf64_Half flag)
 		{EM_COLDFIRE, "Motorola Coldfire"},
 		{EM_ALPHA, "Alpha"},
 		{EM_D10V, "d10v"},
-		{EM_D30V, "d30v"},
-		{EM_M32R, "Renesas M32R (formerly Mitsubishi M32r)"},
-		{EM_V800, "Renesas V850 (using RH850 ABI)"},
-		{EM_V850, "Renesas V850"}
 	};
-	
+
 	printf("  Machine:");
 	print_spaces(27);
 
@@ -104,6 +99,10 @@ void mannage_machine(Elf64_Half flag)
 void mannage_machine_2(Elf64_Half flag)
 {
 	Hdr_t h_types[] = {
+		{EM_D30V, "d30v"},
+		{EM_M32R, "Renesas M32R (formerly Mitsubishi M32r)"},
+		{EM_V800, "Renesas V850 (using RH850 ABI)"},
+		{EM_V850, "Renesas V850"},
 		{EM_MN10300, "mn10300"},
 		{EM_MN10200, "mn10200"},
 		{EM_FR30, "Fujitsu FR30"},
@@ -125,12 +124,10 @@ void mannage_machine_2(Elf64_Half flag)
 		{EM_68HC11, "Motorola MC68HC11 Microcontroller"},
 		{EM_68HC08, "Motorola MC68HC08 Microcontroller"},
 		{EM_68HC05, "Motorola MC68HC05 Microcontroller"},
-		{EM_SVX, "Silicon Graphics SVx"},
 		{EM_ST19, "STMicroelectronics ST19 8-bit microcontroller"},
 		{EM_VAX, "Digital VAX"},
 		{EM_AVR, "Atmel AVR 8-bit microcontroller"},
 		{EM_CRIS, "Axis Communications 32-bit embedded processor"},
-		{EM_JAVELIN, "Infineon Technologies 32-bit embedded cpu"},
 		{EM_FIREPATH, "Element 14 64-bit DSP processor"},
 		{EM_ZSP, "LSI Logic's 16-bit DSP processor"},
 		{EM_MMIX, "Donald Knuth's educational 64-bit processor"},

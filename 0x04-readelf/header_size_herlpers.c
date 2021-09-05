@@ -1,7 +1,7 @@
 #include "elfread.h"
 
 /**
- * void mannage_header_proSize - The size in bytes of one entry
+ * mannage_header_proSize - The size in bytes of one entry
  * @phsize32: size in 32 bytes
  * @phsize64: size in 64 bytes
  * @sel: selected structure
@@ -21,7 +21,7 @@ void mannage_header_proSize(Elf32_Half phsize32, Elf64_Half phsize64, int sel)
 /**
  * manange_progHeader_num - The ELF header's size in bytes.
  * @nsize32: size in 32 bytes
- * @nsize32: size un 64 bytes
+ * @nsize64: size un 64 bytes
  * @sel: sekected structure
  *
  * Return: None
@@ -77,7 +77,7 @@ void mannage_hdrSec_num(Elf32_Half shnum32, Elf64_Half shnum64, int sel)
 }
 
 /**
- * mannage_tableIndex - The section header table index 
+ * mannage_tableIndex - The section header table index
  * @tindex32: index in 32
  * @tindex64: index in 64
  * @sel: structure to use

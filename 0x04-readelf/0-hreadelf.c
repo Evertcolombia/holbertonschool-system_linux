@@ -18,7 +18,7 @@ void mannage_error(char *msg, int code)
  * @argc: args count
  * @argv: args list
  *
- * Return 0 on success
+ * Return: 0 on success
  */
 int main(int argc, char *argv[])
 {

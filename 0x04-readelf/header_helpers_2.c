@@ -1,11 +1,11 @@
 #include "elfread.h"
 
 /**
- * mannage_entry_point - The virtual address to which the system first transfers
+ * mannage_entry_point - The virtual address to which
  * @entryP_32: entry pont for 32
- * @entryP_64: entry pont for 64
+ * @entryP: entry pont for 64
  * @sel: structure to use
- * 
+ *
  * Return: None
  */
 void mannage_entry_point(Elf32_Addr entryP_32, Elf64_Addr entryP, int sel)
@@ -13,7 +13,7 @@ void mannage_entry_point(Elf32_Addr entryP_32, Elf64_Addr entryP, int sel)
 	printf("  Entry point address:");
 	print_spaces(15);
 
-	if (sel != 2)			
+	if (sel != 2)
 		printf("0x%x\n", entryP_32);
 	else
 		printf("0x%lx\n", entryP);
