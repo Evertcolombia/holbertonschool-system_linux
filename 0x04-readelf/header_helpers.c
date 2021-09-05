@@ -50,6 +50,7 @@ void mannage_machine(Elf64_Half flag)
 {
 	Hdr_t h_types[] = {
 		{EM_NONE, "None"},
+		{EM_X86_64, "Advanced Micro Devices X86-64"},
 		{EM_AARCH64, "AArch64"},
 		{EM_M32, "WE32100"},
 		{EM_SPARC, "Sparc"},
@@ -85,7 +86,6 @@ void mannage_machine(Elf64_Half flag)
 
 	printf("  Machine:");
 	print_spaces(27);
-
 	if (machine_iterator(h_types, 35, flag) != 0)
 		mannage_machine_2(flag);
 }
@@ -133,7 +133,7 @@ void mannage_machine_2(Elf64_Half flag)
 		{EM_MMIX, "Donald Knuth's educational 64-bit processor"},
 		{EM_HUANY, "Harvard Universitys's machine-independent object format"},
 		{EM_PRISM, "Vitesse Prism"},
-		{EM_X86_64, "Advanced Micro Devices X86-64"},
+		
 		{EM_S390, "IBM S/390"},
 		{EM_XTENSA, "Tensilica Xtensa Processor"},
 	};
