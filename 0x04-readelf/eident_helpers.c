@@ -10,11 +10,12 @@ void mannage_magic(unsigned char e_ident[EI_NIDENT])
 {
 	int i = 0;
 
-	printf("  Magic:   ");
-	for (; i < (EI_NIDENT - 1); i++)
-		printf("%02x ", e_ident[i]);
-	printf("%02x\n", e_ident[i]);
-
+	printf("  Magic:   ");	
+	for (i = 0; i < EI_NIDENT; i++)
+	{
+		printf("%2.2x ", e_ident[i]);
+	}
+	printf("\n");
 }
 
 /**
