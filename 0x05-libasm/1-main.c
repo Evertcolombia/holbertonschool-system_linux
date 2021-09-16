@@ -6,7 +6,7 @@
 #include "libasm.h"
 
 #define S1  "Holberton School"
-#define S2  ""
+#define S2  "Holbertin"
 #define S3  "Holberton Socool"
 
 /**
@@ -17,9 +17,8 @@
 int main(void)
 {
     assert(strcmp(S1, S1) == asm_strcmp(S1, S1));
-
-    /*assert(strcmp(S1, S2) == asm_strcmp(S1, S2));
-    assert(strcmp(S1, S3) == asm_strcmp(S1, S3));*/
+    assert(strcmp(S1, S2) == asm_strcmp(S1, S2));
+    assert(strcmp(S1, S3) == asm_strcmp(S1, S3));
 
     printf("All good!\n");
     return (EXIT_SUCCESS);
