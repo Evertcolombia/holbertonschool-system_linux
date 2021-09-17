@@ -1,10 +1,10 @@
 BITS 64
 
-global asm_strcmp		; Export our 'asm_strcmp; function
+global asm_strcmp		; Export our 'asm_strcmp' function
 
 	section .text
 
-	; int asm_strcmp(const char *s1, const char *s2)
+	; int asm_strcmp(const char *s1, const char *s2);
 	; compare two str
 	;
 	; edi <- const char s1

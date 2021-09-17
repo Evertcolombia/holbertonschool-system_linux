@@ -4,9 +4,8 @@ global asm_strlen	; Export our 'asm_strlen' function
 
 	section .text
 
-	; size_t asm_strlen(const char *str)
+	; size_t asm_strlen(const char *str);
 	; get the lenght of a str
-	;
 	;
 	; edi <- str
 	;
