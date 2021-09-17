@@ -20,21 +20,29 @@ asm_strstr:
 
 	push r9
 	mov r9b, [esi]		; save a copy of esi p value
+	mov rbx, 0
 
-	mov bl, [edi]		; check is @haystack is null
-	cmp bl, 0
-	je return_null
-
-	mov cl, [esi]		; check if @needle is null
+	mov cl, [edi]		; check is @haystack is null
 	cmp cl, 0
-	je return_haystack
+	jz return_null
 
+	cmp r9b, 0		; check if @needle is null
+	jz return_haystack
 
-	; while:
+	while:
+		mov r9b, [esi + ebx]		; ebx will control the @neddle position
+		mov cl, [edi]			; update the @haystack position
 
-		;cmp bl, cl
-		;je go_deep
-
+		cmp cl, r9b		;	compare both values
+		je go_deep		; if are equal
+		jne reset_needle	; if are not equal
+		
+		after_reset:
+			inc edi
+			mov cl, [edi]
+			cmp cl, 0
+			jz end_program
+			jnz while
 return_null:
 	mov eax, 0
 	jmp end_program
@@ -43,13 +51,20 @@ return_haystack:
 	mov rax, rdi
 	jmp end_program
 
-;go_deep:
-;	cmp ebx, 0
-;	je set_rax
-;	while_deep:
+reset_needle:
+	mov rbx, 0
+	mov rax, 0
+	jmp after_reset
 
-;set_rax:
-	;mov eax, edi
+go_deep:
+	cmp ebx, 0
+	je set_rax
+	;while_deep:
+		; from here we need take the rest of
+		;comparations
+
+set_rax:
+	mov eax, edi
 	;jmp while_deep	
 
 end_program:
