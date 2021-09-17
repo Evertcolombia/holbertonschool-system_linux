@@ -15,20 +15,22 @@ global asm_strchr		; Export our 'asm_strchr' function
 asm_strchr:
 
 	mov bl, [edi]
-	mov cl, sil		; register for 8-bits -> esi
 
-	cmp bl, cl
-	je return
-
-	while:
+	while: cmp bl, sil		; sil -> register for 8-bits -> esi
+		je return
 
 		inc edi
 		mov bl, [edi]
-
-		cmp bl, cl
-		je return
-		jne while
+		
+		cmp bl, 0
+		je mov_zero
+		
+		jmp while
 
 	return:
 		mov eax, edi
 		ret
+
+mov_zero:
+	mov eax, 0
+	ret
