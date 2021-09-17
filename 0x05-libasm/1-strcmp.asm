@@ -15,21 +15,21 @@ global asm_strcmp		; Export our 'asm_strcmp' function
 asm_strcmp:
 	mov bl, [edi]		; get the byte value pointed by edi
 	mov cl, [esi]		; get the byte value pointed by esi
-	
+
 	sub bl, cl		; subtract cl to bl and get the rest in bl
 	cmp bl, 0		; compare bl to zero
 	jnz return		; if not zero return
 
-	while:	
+	while:
 		inc edi			; increment the str pointer @s1
 		inc esi			; increment the str pointer @s2
 		mov bl, [edi]		; get the byte value pointed by @s1
 		mov cl, [esi]		; get the byte value pointed by @s2
-							
+
 		sub bl, cl		; subtract cl to bl
 		cmp bl, 0		; compare the result with 0
 		jnz return		; if not zero return
-		
+
 		cmp cl, 0		; compare the value on cl
 		jnz while		; if not zero jump while
 
@@ -41,7 +41,7 @@ asm_strcmp:
 
 return_zero:
 	mov eax, 0		; return 0
-	ret	
+	ret
 
 return_signed:
 	mov eax, 1		; return 1

@@ -16,7 +16,7 @@ global asm_strncmp		; Export our 'asm_strcmp' function
 asm_strncmp:
 	mov bl, [edi]		; get the byte value pointed by edi
 	mov cl, [esi]		; get the byte value pointed by esi
-	
+
 	sub bl, cl		; subtract cl to bl and get the rest in bl
 	cmp bl, 0		; compare bl to zero
 	jnz return		; if not zero return
@@ -34,7 +34,7 @@ asm_strncmp:
 		inc r14D		; increments the counter
 		mov bl, [edi]		; get the byte value pointed by @s1
 		mov cl, [esi]		; get the byte value pointed by @s2
-							
+
 		sub bl, cl		; subtract cl to bl
 		cmp bl, 0		; compare the result with 0
 		jnz return		; if not zero return
@@ -50,7 +50,7 @@ asm_strncmp:
 
 return_zero:
 	mov eax, 0		; return 0
-	ret	
+	ret
 
 return_signed:
 	mov eax, 1		; return 1

@@ -36,7 +36,7 @@ asm_strstr:
 		cmp cl, r9b		;	compare both values
 		je go_deep		; if are equal
 		jne reset_needle	; if are not equal
-		
+
 		after_reset:
 			inc edi
 			mov cl, [edi]
@@ -65,7 +65,7 @@ go_deep:
 
 set_rax:
 	mov eax, edi
-	;jmp while_deep	
+	;jmp while_deep
 
 end_program:
 	pop r9

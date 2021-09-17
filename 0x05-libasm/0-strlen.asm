@@ -14,7 +14,7 @@ global asm_strlen	; Export our 'asm_strlen' function
 asm_strlen:
 	mov eax, 0		; init the counter in eax
 	mov cl, [edi]		; get the byte value pointed by edi
-	
+
 	while: cmp cl, 0		; compare the value to \0
 		jz return		; if null return
 		inc eax			; Increment the counter
