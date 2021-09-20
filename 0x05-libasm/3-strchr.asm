@@ -17,7 +17,7 @@ asm_strchr:
 	mov bl, [edi]
 	cmp bl, sil		; sil -> register for 8-bits -> esi
 	je return
-	
+
 	while:
 
 		inc edi
