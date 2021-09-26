@@ -8,7 +8,7 @@
  */
 void (*current_handler_signal(void))(int);
 {
-	sighandler_t handler_pointer;
+	__sighandler_t handler_pointer;
 
 	handler_pointer = signal(SIGINT, SIG_IGN);
 
