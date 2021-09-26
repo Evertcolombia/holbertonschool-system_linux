@@ -6,7 +6,7 @@
  *
  * Return: NULL on error, pointer on sucess
  */
-void (*current_handler_signal(void))(int);
+void (*current_handler_signal(void))(int)
 {
 	__sighandler_t handler_pointer;
 
