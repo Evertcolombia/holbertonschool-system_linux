@@ -1,5 +1,10 @@
 #include "signals.h"
 
+/**
+ * current_handler_signal - returs a pointer to a signal handler
+ *
+ * Return: NULL on error, pointer on sucess
+ */
 void (*current_handler_signal(void))(int);
 {
 	sighandler_t handler_pointer;
