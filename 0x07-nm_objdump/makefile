@@ -2,6 +2,7 @@ CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
+
 all: hnm 
 
 hnm: 0-nm.c
