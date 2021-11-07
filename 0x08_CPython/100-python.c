@@ -10,7 +10,7 @@ void print_python_int(PyObject *p)
 
 	if (!p || !PyLong_Check(p))
 	{
-		printf("Invalidd Int object\n");
+		printf("Invalid Int object\n");
 		return;
 	}
 	_dig = (PyLongObject *)p;
@@ -36,5 +36,5 @@ void print_python_int(PyObject *p)
 	s == 0 ? cout[s++] = 0 : 0, Py_SIZE(_dig) < 0 ? putchar('-') : 0;
 	for (i = s; --i >= 0;)
 		i == s - 1 ? printf("%u", cout[i]) : printf("%09u", cout[i]);
-	/* printf("\n");*/
+	printf("\n");
 }
