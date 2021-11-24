@@ -5,11 +5,13 @@ RC = $(wildcard *.c)
 OBJS = $(patsubst %.c, %.o, $(SRC))
 LIBS = $(patsubst %.c, %.o, helpers.c)
 0 = $(patsubst %.c, %.o, $(wildcard 0-*.c)) $(LIBS)
+1 = $(patsubst %.c, %.o, $(wildcard 1-*.c)) $(LIBS)
 
-.PHONY: strace_0 clean
+.PHONY: strace_0 strace_1 clean
 
 strace_0: $(0)
 		$(CC) $(CFLAGS) $(0) -o strace_0
-
+strace_1: $(1)
+		$(CC) $(CFLAGS) $(1) -o strace_1
 clean:
 		rm -f $(OBJS) strace_*
